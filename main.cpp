@@ -1,17 +1,44 @@
-#include <array>
-#include <cstdio>
+/*
+(1) ctrl + shift + p
+(2) search for "git commit"
+(3) then type a comment
+(4) ctrl + shift + p
+(5) then search "git push"
+*/
 
-int main()
-{
-        std::array<int, 5> x   = {1, 2, 3, 4, 5};
-        // for (int i = 0; i < x.size(); i += 1)
-        // {
-        //         if (x[i] % 2 == 0) { std::printf("Even: x[%d] = %d\n", i, x[i]); }
-        //         else { std::printf("Odd: x[%d] = %d\n", i, x[i]); }
-        // }
+#include <iostream>
+#include <string>
 
-        // Task: Add the even numbers in the array `x`.
-        int                sum = 0;
-        for (int i = 0; i < x.size(); i += 1) { sum = sum + x[i]; }
-        std::printf("sum = %d\n", sum);
-}
+// [7] include string_view
+#include <string_view>
+
+int main() {
+        /* [1] strings instead of character arrays
+                * easier to assign values
+                * easier to concatenate (adding values)
+                * have many more methods available
+        */
+
+
+        std::string str1 = "Message One";
+        std::string str2 = "Message Two";
+        
+        std::string_view str_v1 = str1;
+        std::string_view str_v2 = str2;
+
+        str_v1 = str2;
+
+        str2 = "Message Three";
+
+        str_v2 = str2;
+
+        std::swap(str_v1,str_v2);
+        
+        std::cout << "str1: " << str1 << " length: " << str1.length() << std::endl;
+        std::cout << "str2: " << str2 << " length: " << str2.length() << std::endl;
+        std::cout << "str_v1: " << str_v1 << " length: " << str_v1.length() << std::endl;
+
+
+
+    
+};
