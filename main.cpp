@@ -23,18 +23,42 @@ int main() {
                 * for example using the find operator                
         */
 
+        // string of languages
+        std::string languages = "English, French, French Latin, Bengali, Turkish, Hindi, Farsi, Korean, Catonese, Spanish, Arabic, Urdu, Latin, German";
+        
+        // language we're searching for
+        std::string language_of_interest = "Hindi";
+        
+        // position of the searched language
+        std::size_t position = languages.find(language_of_interest);
 
-        std::string basket = "Pineapples, Bananas, Pears, Bananas, Peaches";
+
+
+
+
+
+
+
+        //std::string basket = "Pineapples, Bananas, Pears, Bananas, Peaches";
+        
+
         
         // size_t is just like an int
         //std::size_t found = basket.find("apples");
         //std::cout << "The value of found is: " << found << std::endl;
         
         // using substrings
-        std::string second_fruit = basket.substr(0, 10);
 
+
+
+
+
+        /*
+        std::string fruit_of_interest = "Peaches";
+        std::size_t position_of_fruit = basket.find(fruit_of_interest);
+        std::string second_fruit = basket.substr(position_of_fruit, fruit_of_interest.length());
         std::cout << "The substring value is: " << second_fruit << std::endl;
-        
+        */
 
         /* // Work from lesson
         std::string str1 = "Message One";
