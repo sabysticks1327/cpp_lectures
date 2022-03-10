@@ -28,9 +28,24 @@ int main() {
         
         // language we're searching for
         std::string language_of_interest = "Hindi";
-        
+
+        std::string str1 = "123456"
+
+        str2 = str1.substr(4,2)
+
+
+
+
         // position of the searched language
         std::size_t position = languages.find(language_of_interest);
+
+        // print the searched language and the next language
+        std::size_t length_of_language = language_of_interest.length();
+        std::cout << "\nThe first language is: " << languages.substr(position, length_of_language);
+        //std::cout << "\nThe next language is: " << languages.substr(position,0);
+
+
+
 
 
 
