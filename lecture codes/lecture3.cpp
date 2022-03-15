@@ -12,7 +12,7 @@
 // [7] include string_view
 #include <string_view>
 
-int main() {
+int not_main0() {
         /* [1] strings instead of character arrays
                 * easier to assign values
                 * easier to concatenate (adding values)
