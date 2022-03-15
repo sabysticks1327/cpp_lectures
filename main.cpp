@@ -16,8 +16,7 @@ int main() {
     std::getline(std::cin,surname);
 
     // output tests
-    //std::cout << "your first name is: " << first_name << std::endl;
-    //std::cout << "your surname is: " << surname << std::endl;
-    std::cout << "Your name is " + first_name + " " + surname << std::endl;
- 
+    std::cout << "your first name is: " << first_name << std::endl;
+    std::cout << "your surname is: " << surname << std::endl;
+    
 };
