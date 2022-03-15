@@ -6,23 +6,26 @@
 (5) then search "git push"
 */
 
-#include <iostream>
-#include <string>
+#include <iostream> // cout; cin
+#include <string>   // strings
+#include <string_view> // string_views
 
-// [7] include string_view
-#include <string_view>
-
-int not_main0() {
+int main() {
         /* [1] strings instead of character arrays
                 * easier to assign values
                 * easier to concatenate (adding values)
                 * have many more methods and functions available
-                        * swap
+                        * swap     
+                        * find
+                        * length
+                        * substr
+                        * ...
 
-           [2] string operations via string documentation
+           [2] string operations via "cpp string documentation"
                 * for example using the find operator                
         */
 
+        /*
         // string of languages
         std::string languages = "English, French, French Latin, Bengali, Turkish, Hindi, Farsi, Korean, Catonese, Spanish, Arabic, Urdu, Latin, German";
         
@@ -30,15 +33,40 @@ int not_main0() {
         std::string language_of_interest = "Hindi";
 
         // position of the searched language
+        // big_string.find(search_item) -> returns position of search_item
         std::size_t position = languages.find(language_of_interest);
 
         // print the searched language and the next language
         std::size_t length_of_language = language_of_interest.length();
+
         std::cout << "\nThe first language is: " << languages.substr(position, length_of_language);
+
         //std::cout << "\nThe next language is: " << languages.substr(position,0);
+       
 
 
+        std::string colours {"Blue, Yellow, Green, Red"};
 
+        // std::string some_colours {colours.substr(6,13)};
+        // std::string_view view_1 {some_colours}; 
+        //std::cout << view_1;
+
+        std::cout << "Colours I like: " << colours << std::endl; 
+
+        std::string favourite {"Yellow"};
+        std::size_t position {colours.find(favourite)};
+
+        std::cout << "Position of " << favourite << " " << position << std::endl; 
+        
+        std::size_t new_position {position + favourite.length() + 2};
+
+        std::cout << "Position of next colour: " << new_position << std::endl; 
+        
+        std::string substring_remaining {colours.substr(new_position,colours.length() - new_position)};
+
+        // now we look next comma
+        // that will give length of next colour
+ */
 
 
 
