@@ -1,3 +1,4 @@
+/*
 #include <algorithm>
 #include <cctype>
 #include <iostream>
@@ -119,3 +120,4 @@ int main()
         const auto num_consonents = std::count_if(str.begin(), str.end(), is_consonant);
         std::cout << num_consonents << '\n';
 }
+*/

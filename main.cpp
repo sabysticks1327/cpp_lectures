@@ -1,100 +1,124 @@
-/*
-(1) ctrl + shift + p
-(2) search for "git commit"
-(3) then type a comment
-(4) ctrl + shift + p
-(5) then search "git push"
-*/
-
+#include <algorithm>
+#include <cctype>
 #include <iostream>
 #include <string>
-
-// [7] include string_view
 #include <string_view>
 
-int main() {
-        /* [1] strings instead of character arrays
-                * easier to assign values
-                * easier to concatenate (adding values)
-                * have many more methods and functions available
-                        * swap
+int main()
+{
+        std::string fullname {};
 
-           [2] string operations via string documentation
-                * for example using the find operator                
-        */
-
-        // string of languages
-        std::string languages = "English, French, French Latin, Bengali, Turkish, Hindi, Farsi, Korean, Catonese, Spanish, Arabic, Urdu, Latin, German";
-        
-        // language we're searching for
-        std::string language_of_interest = "Hindi";
-
-        std::string str1 = "123456"
-
-        str2 = str1.substr(4,2)
-
-
-
-
-        // position of the searched language
-        std::size_t position = languages.find(language_of_interest);
-
-        // print the searched language and the next language
-        std::size_t length_of_language = language_of_interest.length();
-        std::cout << "\nThe first language is: " << languages.substr(position, length_of_language);
-        //std::cout << "\nThe next language is: " << languages.substr(position,0);
-
-
-
-
-
-
-
-
-
-
-
-        //std::string basket = "Pineapples, Bananas, Pears, Bananas, Peaches";
-        
-
-        
-        // size_t is just like an int
-        //std::size_t found = basket.find("apples");
-        //std::cout << "The value of found is: " << found << std::endl;
-        
-        // using substrings
-
-
-
-
+        std::cout << "Please enter your fullname (Firstname Lastname): ";
+        std::getline(std::cin, fullname);        // get name from user
+        std::cout << 'test';
 
         /*
-        std::string fruit_of_interest = "Peaches";
-        std::size_t position_of_fruit = basket.find(fruit_of_interest);
-        std::string second_fruit = basket.substr(position_of_fruit, fruit_of_interest.length());
-        std::cout << "The substring value is: " << second_fruit << std::endl;
+        // Copy #1
+        std::string fullname_copy {};
+        fullname_copy = fullname;
+
+        // Copy #2
+        std::string fullname_copy {fullname};
+
+        // Copy #3
+        std::string fullname_copy(fullname.size(), '\0');
+        fullname.copy(fullname_copy.data(), fullname_copy.size());
+
+        // Copy #4
+        std::string fullname_copy(fullname.size(), '\0');
+        std::copy(fullname.begin(), fullname.end(), fullname_copy.begin());
+        std::cout << "fullname: " << fullname << '\n';
+        std::cout << "fullname_copy: " << fullname_copy << '\n';
+
+        // Copy #5
+        std::string fullname_copy {};
+        fullname_copy += fullname;
+        std::cout << "fullname: " << fullname << '\n';
+        std::cout << "fullname_copy: " << fullname_copy << '\n';
+
+        // Task 1: Copy the date from the user input into another variable.
+        // Task 2: Copy the date from the user input into the end of another variable. (Hint: The destination must already contain a string).
+
+        // Example - Count the vowels in a given string.
+        // aeiou
+        // The Quick Brown Fox Jumps Over the Lazy Dog
+
+        std::string_view str {"The Quick Brown Fox Jumps Over the Lazy Dog"};
+        // Method #1
+        int              num_vowels {0};
+        for (const auto c : str)
+        {
+                const auto ch = std::tolower(c);
+                if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') { num_vowels += 1; }
+        }
+
+        // Method #2
+        for (const auto v : "AaEeIiOoUu")
+        {
+                // take vowel and find all occurences of it in str.
+                int i = 0;
+                while (true)
+                {
+                        i = str.find(v, i);
+                        if (i != std::string_view::npos)
+                        {
+                                num_vowels += 1;
+                                i += 1;
+                        }
+                        else { break; }
+                }
+        }
+
+        // Method #3
+        std::string_view vowels {"AaEeIiOoUu"};
+        for (int i = 0;;)
+        {
+                i = str.find_first_of(vowels, i);
+                if (i != std::string_view::npos)
+                {
+                        num_vowels += 1;
+                        i += 1;
+                }
+                else { break; }
+        }
+        std::cout << num_vowels << '\n';
+
+        // Method #4
+        const auto       num_vowels = std::count_if(str.begin(), str.end(), [](const auto c) {
+                const auto ch = std::tolower(c);
+                return (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u');
+        });
+        std::cout << num_vowels << '\n';
+
+        // Task: Count all consonants in string_view. (Hint: Consonants are the alphabet that's not a vowel. See `find_first_not_of`)
+
+        // TODO(CA): Count everything that's not a vowel using find. Find the substrings and length of substring - vowels.
+        int              num_consonents {0};
+        for (const auto v : "AaEeIiOoUu")
+        {
+                // take vowel and find all occurences of it in str.
+                int i = 0;
+                while (true)
+                {
+                        i = str.find(v, i);
+                        if (i != std::string_view::npos)
+                        {
+                                num_vowels += 1;
+                                i += 1;
+                        }
+                        else { break; }
+                }
+        }
+
+        // Checks if the given character is a consonant.
+        constexpr auto   is_consonant = [](const auto c) {
+                if (!std::isalpha(c)) { return false; }
+
+                const auto lch = std::tolower(c);
+                return !(lch == 'a' || lch == 'e' || lch == 'i' || lch == 'o' || lch == 'u');
+        };
+
+        const auto num_consonents = std::count_if(str.begin(), str.end(), is_consonant);
+        std::cout << num_consonents << '\n';
         */
-
-        /* // Work from lesson
-        std::string str1 = "Message One";
-        std::string str2 = "Message Two";
-        
-        std::string_view str_v1 = str1;
-        std::string_view str_v2 = str2;
-
-        str_v1 = str2;
-
-        str2 = "Message Three";
-
-        str_v2 = str2;
-
-        std::swap(str_v1,str_v2);
-        
-        std::cout << "str1: " << str1 << " length: " << str1.length() << std::endl;
-        std::cout << "str2: " << str2 << " length: " << str2.length() << std::endl;
-        std::cout << "str_v1: " << str_v1 << " length: " << str_v1.length() << std::endl;
-        */
-
-
-    
-};
+}
