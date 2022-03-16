@@ -5,13 +5,13 @@
 (4) ctrl + shift + p
 (5) then search "git push"
 */
-
+ /* 
 #include <iostream> // cout; cin
 #include <string>   // strings
 #include <string_view> // string_views
 
-int main() {
-        /* [1] strings instead of character arrays
+int main0() {
+       [1] strings instead of character arrays
                 * easier to assign values
                 * easier to concatenate (adding values)
                 * have many more methods and functions available
@@ -133,6 +133,6 @@ int main() {
     // output tests
     std::cout << "your first name is: " << first_name << std::endl;
     std::cout << "your surname is: " << surname << std::endl;
-*/
 
-};
+
+};*/
