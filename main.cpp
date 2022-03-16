@@ -2,11 +2,6 @@
 #include <string>   // strings
 
 int main() {
-    int year {2022};
-    int born {1998};
-
-    int* p_year {&year};
-    int* p_born {&born};
-
-    
+    // {1} testing GitPod
+    std::cout << "Test message" << std::endl;
 };
