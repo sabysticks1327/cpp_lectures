@@ -33,7 +33,7 @@ constexpr std::string_view PRODUCT_NAMES[static_cast<int>(Product::count)] = {
     [static_cast<int>(Product::electronics)] = "electronics",
     [static_cast<int>(Product::halal)]  = "halal",
     [static_cast<int>(Product::vegetables)] = "vegetables",
-    [static_cast<int>(Product::fruits)] = "fruits",         //change name customise it
+    [static_cast<int>(Product::fruits)] = "fruits",         
     [static_cast<int>(Product::breads)] = "breads",
     [static_cast<int>(Product::eggs)]   = "eggs",
     [static_cast<int>(Product::oils)] = "oils",
@@ -65,9 +65,9 @@ auto list_products()
 /// Represents a stocked item corresponding to one of the listed product categories.
 struct Item
 {
-        Product     id;            // Product category that item falls into.      // customise
-        std::string name;          // Name of the item                            // add more properties for example
-        float       price;         // Price in GBP                                 best before date
+        Product     id;            // Product category that item falls into.     
+        std::string name;          // Name of the item                            
+        float       price;         // Price in GBP                                 
         int         nstock;        // No. of units in stock
 
         Item() = default;   //gives default value to the properties
@@ -82,7 +82,7 @@ struct Inventory
 {
         using SearchPredicate = std::function<bool(const Item&)>;
         using Items           = std::vector<Item>;
-        using ItemPtr         = Items::iterator;        // pointer to item type
+        using ItemPtr         = Items::iterator;        
 
         Items items;
 
@@ -108,7 +108,7 @@ struct Inventory
         /// @brief Prints a table listing currently stocked items in the inventory.
         auto list()
         {
-                std::printf("%32s%64s%16s%8s%12s\n", "Product", "Model Name", "Price (GBP)", "Qty.");   //customise                                                                       // modify
+                std::printf("%32s%64s%16s%8s%12s\n", "Product", "Model Name", "Price (GBP)", "Qty.");                                                                       
                 std::for_each(items.begin(), items.end(), [](const auto& item) {
                         std::printf("%32s%64s%16.2f%8d\n", get_product_name(item.id).data(), item.name.c_str(), item.price, item.nstock);
                 });
@@ -123,7 +123,7 @@ struct InventoryUI
                 Invalid      = -1,
                 AddItem      = 'a',
                 RemoveItem   = 'r',
-                EditItem     = 'e',               //customise
+                EditItem     = 'e',               
                 SearchItem   = 's',
                 ListProducts = 'p',
                 ListItems    = 'l',
@@ -170,10 +170,10 @@ struct InventoryUI
                                 std::printf("Enter model name: ");
                                 std::getline(std::cin >> std::ws, item.name);
 
-                                std::printf("Enter price: ");      //customise 
+                                std::printf("Enter price: ");      
                                 std::cin >> item.price;
 
-                                std::printf("Enter quantity: ");   //customise
+                                std::printf("Enter quantity: ");   
                                 std::cin >> item.nstock;
 
                                 return item;
@@ -256,7 +256,7 @@ struct InventoryUI
                         if (opt == static_cast<char>(Option::AddItem))
                         {
                                 const auto item = handle_add_option();
-                                inventory.add(item);                                //customisez
+                                inventory.add(item);                                
                                 std::printf("Added item\n\n");
                         }
                         else if (opt == static_cast<char>(Option::SearchItem)) { handle_search_option(); }
